@@ -11,7 +11,7 @@ services:
         volumes:
               - ./nginx_serv/nginx_conf/conf.d:/etc/nginx/conf.d
               - ./nginx_serv/app/:/var/www/html/
-        
+              - ./nginx_serv/log/:/var/log/nginx/     
         networks: 
             - main-server_docker-lesson
 
@@ -32,7 +32,8 @@ services:
            - main-server_docker-lesson
 
      db: 
-       image: mysql 
+       image: mysql
+       container_name: mysql 
        command: --default-authentication-plugin=mysql_native_password 
        restart: always 
        ports:
@@ -45,7 +46,8 @@ services:
 
 
      phpmyadmin: 
-       image: phpmyadmin 
+       image: phpmyadmin
+       container_name: phpmyadmin 
        restart: always 
        ports: 
          - 8080:80 

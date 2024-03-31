@@ -11,7 +11,7 @@ services:
         volumes:
               - ./nginx_serv/nginx_conf/conf.d:/etc/nginx/conf.d
               - ./nginx_serv/app/:/var/www/html/
-        
+              - ./nginx_serv/log/:/var/log/nginx/     
         networks: 
             - main-server_docker-lesson
 
