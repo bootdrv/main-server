@@ -1,11 +1,12 @@
 RunBook#30.03_2024-01_04_2024_Kostiantyn_Derevianchenko
 
-#######################################################################################################
+#############################################################################################
 Task1 -   \Create bash script for output unie file names from both catalogs\
 Task2 -   \describe the construction of ci-cd using the provided pipelines\
 Task3 -   \How to up microservices in docker container trough docker-compose\
-Task3_1 - \How to up microservices in docker container trough docker-compose on the production server\
-#######################################################################################################
+Task3_1 - \How to up microservices in docker container trough docker-compose
+on the production server\
+#############################################################################################
 
 Orig tasks list:
 
@@ -32,8 +33,7 @@ file4.txt
 My code bash script project location:(/main-server/check_unique_files/detectuniquefiles.sh)
 This script can detected unique file names in both catalogs(my_dir_1; mmy_dir_2)
 
-!!!Notification! If you haven't in your test environment catalogs (my_dir_1; mmy_dir_2) and needed
-files in this catalogs, before run script need uncomment bash script string? for create this catalogs and files 
+!!!Notification! If you haven't in your test environment catalogs (my_dir_1; mmy_dir_2) and needed. files in this catalogs, before run script need uncomment bash script string for create this catalogs and files!
 
 from:
 
@@ -79,7 +79,7 @@ and after that run command chmod +x detectuniquefiles.sh
 Run the file again.(./detectuniquefiles.sh) 
 
 Done.task 1 finished
-------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 Завдання 2
 Побудуйте власну послідовність дій для двох логічних блоків та обґрунтуйте свій вибір. Об'єднайте деякі кроки разом, котрі вважаєте треба виконувати як один процесс у випадку ci-cd. Як результат отримати послідовність для майбутнього вибудовування ci-cd процесів для кожного з блоків.
 Блок 1
@@ -774,7 +774,7 @@ Save file and exit from editor.
  
  
 34. Now we will start docker-compose.yml, that will be build our micro-services.
-After start this services shouldbe created 4 docker containers:
+After start this services should be created and started four docker containers:
 nginxapp ; php_fpm ; sql  ; phpmyadmin .
 
 !!!Notification! Last two services(sql ; phpmyadmin) created and added to docker-compose.yml and started,
@@ -824,7 +824,7 @@ docker-compose up -d
 ##########################################################################################################
 !!!!!!! Troubleshooting:
 If first two containers(nginxapp ; php_fpm) willn't created after previouse command,
-you can go to catalogs which have Docker files (/main-server/nginx_serv/ ; /main-server/php_fpm_serv/)
+you can go to catalogs which have Dockerfile (/main-server/nginx_serv/ ; /main-server/php_fpm_serv/)
 and manually build this containers.
 
 Example 1 - for manual start build nginx docker container:
@@ -841,7 +841,7 @@ Same build container operation need start for php_fpm service.
 Example 2 - for manual start build php_fpm docker container:
 Go to catalog /main-server/php_fpm_serv/ and run the command:
 
-docker build -t nginxapp .
+docker build -t php_fpm .
 
 After that container for php server should be created.
 You can check created your images after run command 'docker images'
@@ -864,10 +864,10 @@ Example 1 - edit block nginx service:
  version: '3.3'
 services:
      nginx:
-        image: nginxapp                                            # This string was uncomment             
+        image: nginxapp             
         container_name: nginxapp
-#       build:													   # This string was disable after comment '#'                               
-#         context: ./nginx_serv/                                   # This string was disable after comment '#' 
+#       build:						                                  
+#         context: ./nginx_serv/
         restart: always
         ports:
          - '80:80'
@@ -877,9 +877,6 @@ services:
 
         networks:
             - main-server_docker-lesson
- 
-
-
 
 ################################################################################################################
 
@@ -892,10 +889,10 @@ Example 2- edit block php_fpm service:
 ################################################################################################################
 
      php_fpm:
-#      image: php_fpm
+       image: php_fpm
        container_name: php_fpm
-       build:
-         context: ./php_fpm_serv/
+#      build:
+#        context: ./php_fpm_serv/
        restart: always
        ports:
          - '9000:9000'
@@ -912,9 +909,9 @@ Done troubleshooting bloc.
 ----------------------------------------------------------------------------------------------------------------
 36. Now we need go back to our root project directory (/main-server)
 
-37. docker-compose up -d  # Start coker-compose again
+37. docker-compose up -d  # Start docker-compose again
 
-38 docker ps              # You should be see four up docker containers.
+38 docker ps              # You should be see your started docker containers.
 
 39. Next we need add our containers names to docker bridge network:
 
