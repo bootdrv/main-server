@@ -13,7 +13,7 @@ services:
               - ./nginx_serv/app/:/var/www/html/
               - ./nginx_serv/log/:/var/log/nginx/     
         networks: 
-            - main-server_docker-lesson
+            - main-server_docker-bridged
 
        
       
@@ -29,7 +29,7 @@ services:
           - ./php_fpm_serv/app/:/var/www/html/
 #         - ./nginx_serv/app/:/var/www/html/  
        networks:
-           - main-server_docker-lesson
+           - main-server_docker-bridged
 
      db: 
        image: mysql
@@ -42,7 +42,7 @@ services:
           MYSQL_ROOT_PASSWORD: TestSkuljoba2024!
     
        networks:
-          - main-server_docker-lesson 
+          - main-server_docker-bridged 
 
 
      phpmyadmin: 
@@ -55,8 +55,8 @@ services:
          - PMA_ARBITRARY=1
 
        networks:
-          - main-server_docker-lesson
+          - main-server_docker-bridged
 
 networks:
-  main-server_docker-lesson:
+  main-server_docker-bridged:
      driver: bridge

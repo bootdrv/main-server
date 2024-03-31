@@ -411,7 +411,7 @@ Done. Docker installed!
 12. Install the docker-compose:
 manual:(https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04)
 
-12.x  Run step by step this commands:
+12.1  Run step by step this commands:
 
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
@@ -492,7 +492,7 @@ services:
               - ./nginx_serv/app/:/var/www/html/
               - ./nginx_serv/log/:/var/log/nginx/
         networks: 
-            - main-server_docker-lesson
+            - main-server_docker-bridged
 
        
       
@@ -508,7 +508,7 @@ services:
           - ./php_fpm_serv/app/:/var/www/html/
 #         - ./nginx_serv/app/:/var/www/html/  
        networks:
-           - main-server_docker-lesson
+           - main-server_docker-bridged
 
      db: 
        image: mysql 
@@ -520,7 +520,7 @@ services:
           MYSQL_ROOT_PASSWORD: TestSkuljoba2024!
     
        networks:
-          - main-server_docker-lesson 
+          - main-server_docker-bridged 
 
 
      phpmyadmin: 
@@ -532,10 +532,10 @@ services:
          - PMA_ARBITRARY=1
 
        networks:
-          - main-server_docker-lesson
+          - main-server_docker-bridged
 
 networks:
-  main-server_docker-lesson:
+  main-server_docker-bridged:
      driver: bridge
 
 ###########################################################################
@@ -599,11 +599,10 @@ that link between it containers to depends microservices will via container name
 we willn't attach ip addresses to configs applications! for that need add our new bridge network.
 Run next command(27)
 
-27.  docker network create --driver bridge main-server_main-server_docker-lesson
+27.  docker network create --driver bridge main-server_docker-bridged
 # after command you can check again commandand, you will see list networks run :'docker network ls'
 !!!!!!!Notification! Also you can start file from root catalog 'main-server':  
-
-./1.run_before_start_docker-compose.sh
+./1.run_before_start_docker-compose.sh # it command add network bridge name to docker network!
 
 # After that, needed bridge network willbe created! 
 example output:
@@ -612,12 +611,12 @@ example output:
 NETWORK ID     NAME                                    DRIVER    SCOPE
 7684d5464b18   bridge                                  bridge    local
 54e2e0a0791d   host                                    host      local
-2111f054e742   main-server_main-server_docker-lesson   bridge    local
+2111f054e742   main-server_docker-bridged              bridge    local
 4a56da164e69   none                                    null      local
 
 #########################################################################
 
-As you see, bridge docker network('main-server_main-server_docker-lesson ') was added as bridge docker network,
+As you see, bridge docker network('main-server_docker-bridged ') was added as bridge docker network,
 and up. But later we need also add to this network our container names, that we already have in docker-compose.yml:
 ( container_name: nginxapp and container_name: php_fpm ) 
 !!!Notification! We can add this names to network bridge only after first start docker containers with this names! 
@@ -748,7 +747,6 @@ RUN apt-get update -y
 RUN DEBIAN_FRONTEND=noninteractive
 ENV TZ=Europe/Kiev
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-RUN sleep 30
 RUN apt-get install htop -y
 RUN apt-get install atop -y
 RUN apt-get install vim -y
@@ -787,7 +785,7 @@ RUN apt-get install atop -y
 RUN apt-get install mc -y
 RUN apt-get install net-tools -y
 RUN apt-get install telnet -y
-
+EXPOSE 9000
 
 #######################################
 
@@ -815,7 +813,7 @@ and save your file! You can cut this blocs from docker-compose.yml and save it f
           MYSQL_ROOT_PASSWORD: TestSkuljoba2024!
 
        networks:
-          - main-server_docker-lesson
+          - main-server_docker-bridged
 
 
     phpmyadmin:
@@ -825,6 +823,9 @@ and save your file! You can cut this blocs from docker-compose.yml and save it f
          - 8080:80
        environment:
          - PMA_ARBITRARY=1 
+
+       networks:
+          - main-server_docker-bridged 
 ############################################################
 Save file and exit from editor.
 
@@ -897,7 +898,7 @@ services:
               - ./nginx_serv/app/:/var/www/html/
               - ./nginx_serv/log/:/var/log/nginx/
         networks:
-            - main-server_docker-lesson
+            - main-server_docker-bridged
 
 ################################################################################################################
 
@@ -921,7 +922,7 @@ Example 2- edit block php_fpm service:
           - ./php_fpm_serv/app/:/var/www/html/
 #         - ./nginx_serv/app/:/var/www/html/
        networks:
-           - main-server_docker-lesson
+           - main-server_docker-bridged
 
 ################################################################################################################
 Save file and exit from editor.
