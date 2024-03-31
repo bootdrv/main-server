@@ -1,7 +1,7 @@
 FROM php:8.3-fpm
 COPY ./hello.php /var/www/
-RUN apt-get update
-RUN apt-get install apt-utils -y
+#RUN apt-get update
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 RUN apt-get install -y iputils-ping
 RUN apt-get install nano -y
 RUN apt-get install htop -y
