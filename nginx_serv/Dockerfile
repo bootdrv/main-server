@@ -1,9 +1,9 @@
 FROM ubuntu:20.04
 RUN apt-get update -y
+RUN apt-get install apt-utils -y
 RUN DEBIAN_FRONTEND=noninteractive
 ENV TZ=Europe/Kiev
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-RUN sleep 30
 RUN apt-get install htop -y
 RUN apt-get install atop -y
 RUN apt-get install vim -y
