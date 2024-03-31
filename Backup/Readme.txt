@@ -1,4 +1,4 @@
-RunBook#30.03_2024-01_04_2024_Kostiantyn_Derevianchenko(e-mail: constdrv@gmail.com  \ phone: +380677052877)
+RunBook#30.03_2024-01_04_2024_Kostiantyn_Derevianchenko
 
 #######################################################################################################
 Task1 -   \Create bash script for output unie file names from both catalogs\
