@@ -1,11 +1,10 @@
 RunBook#30.03_2024-01_04_2024_Kostiantyn_Derevianchenko(e-mail: constdrv@gmail.com  \ phone: +380677052877)
 
-#######################################################################################################
 Task1 -   \Create bash script for output unie file names from both catalogs\
 Task2 -   \describe the construction of ci-cd using the provided pipelines\
 Task3 -   \How to up microservices in docker container trough docker-compose\
 Task3_1 - \How to up microservices in docker container trough docker-compose on the production server\
-#######################################################################################################
+
 
 Orig tasks list:
 
