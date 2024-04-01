@@ -1,4 +1,4 @@
-RunBook#30.03_2024-01_04_2024_Kostiantyn_Derevianchenko
+RunBook#30.03_2024-01_04_2024_Kostiantyn_Derevianchenko 
 
 #############################################################################################
 Task1 -   \Create bash script for output unie file names from both catalogs\
@@ -1010,54 +1010,3 @@ git - jenkins - test - deploy (if haven't problem and alerts - continue pipeline
 
 
 Done.
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
