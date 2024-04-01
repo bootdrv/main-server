@@ -8,4 +8,3 @@ RUN apt-get install atop -y
 RUN apt-get install mc -y
 RUN apt-get install net-tools -y
 RUN apt-get install telnet -y
-EXPOSE 9000
