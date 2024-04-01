@@ -40,7 +40,7 @@ file4.txt
 My code bash script project location:(/main-server/check_unique_files/detectuniquefiles.sh)
 This script can detected unique file names in both catalogs(my_dir_1; mmy_dir_2)
 
-!!!Notification! If you haven't in your test environment catalogs (my_dir_1; mmy_dir_2) and needed. files in this catalogs, before run script need uncomment bash script string for create this catalogs and files!
+!!!Notification! If you haven't in your test environment catalogs (my_dir_1; my_dir_2) and needed. files in this catalogs, before run script need uncomment bash script string for create this catalogs and files!
 
 from:
 
@@ -109,7 +109,7 @@ publish static content for preview (static content is creating when run specific
 
 ------------------------------------------------------------------------------------------------------------------
 I have two block instructions ci - cd, but I created single instruction.
-It piplines can separate on depens steps or blocs if it will be need.
+It piplines can separate on depends steps or blocs if it will be need.
 For full understanding steps piplines examples, I will do it on the Jenkins job: /step by step/ after changed git branch project or new
 commit and push to git! 
 -------------------------------------------------------------------------------------------------------------------
