@@ -109,7 +109,7 @@ publish static content for preview (static content is creating when run specific
 
 ------------------------------------------------------------------------------------------------------------------
 I have two block instructions ci - cd, but I created single instruction.
-It piplines can separate on depends steps or blocs if it will be need.
+It piplines can separate on depends steps or block if it will be need.
 For full understanding steps piplines examples, I will do it on the Jenkins job: /step by step/ after changed git branch project or new
 commit and push to git! 
 -------------------------------------------------------------------------------------------------------------------
@@ -650,7 +650,7 @@ Save file and exit from editor
 
 As you can see , first block this config started listen port 80, and up resolv to nginx htm ; html files
 after web requsts. Next config line describes the location files index.php ; index.htm ; index.html for find
-after requests, and next bloc configuration will resolve requests ro our second container with php_fpm.
+after requests, and next block configuration will resolve requests ro our second container with php_fpm.
 As you see we didn't use ip addresses, but we will use for connections between containers
 in this configuration name 'php_fpm' docker container in line 'fastcgi_pass', 
 which will be added to bridge docker network 'php_fpm:9000;'
@@ -800,7 +800,7 @@ nginxapp ; php_fpm ; sql  ; phpmyadmin .
 because later you will need working with sites, which will be have dynamical structure web resource.
 For this sites perhaps will be need started database on your server and easy access to this database via web.
 If you no need start this advanced containers, you can cut from docker-compose.yml next commands
-and save your file! You can cut this blocs from docker-compose.yml and save it file 
+and save your file! You can cut this blocks from docker-compose.yml and save it file 
 
 ############################################################
     db:
@@ -927,7 +927,7 @@ Example 2- edit block php_fpm service:
 ################################################################################################################
 Save file and exit from editor.
 
-Done troubleshooting bloc.
+Done troubleshooting block.
 ----------------------------------------------------------------------------------------------------------------
 36. Now we need go back to our root project directory (/main-server)
 
