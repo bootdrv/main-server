@@ -50,13 +50,12 @@ services:
        container_name: phpmyadmin 
        restart: always 
        ports: 
-         - 8080:8080 
+         - 8080:80
        environment: 
          - PMA_ARBITRARY=1
 
        networks:
           - main-server_docker-bridged
-       command: /bin/bash -c "sed -i \"s/80/$$APACHE_HTTP_PORT_NUMBER/g\" /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf && /docker-entrypoint.sh apache2-foreground"
 networks:
   main-server_docker-bridged:
      driver: bridge
