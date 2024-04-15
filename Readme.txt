@@ -2,7 +2,8 @@ RunBook#30.03_2024-01_04_2024_Kostiantyn_Derevianchenko
 
 ##################################################################
 Task:
-Need up nginx+php-fpm+sql+phpmyadmin in separate docker containers.
+Need up nginx+php-fpm+sql+phpmyadmin in separate docker containers
+and check web access to nginx and php-fpm.
 ##################################################################
 
 --------------------------------------------------------------------------------------------------
